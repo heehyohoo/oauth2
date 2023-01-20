@@ -21,17 +21,23 @@ public class SecurityConfig {
         return http
                 .csrf().disable()
                 .headers().frameOptions().disable()
+
                 .and()
+
                 .authorizeRequests()
                 .antMatchers("/", "/css/**", "/images/**",
                         "/js/**").permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.
                         USER.name())
                 .anyRequest().authenticated()
+
                 .and()
+
                 .logout()
                 .logoutSuccessUrl("/")
+
                 .and()
+
                 .oauth2Login()
                 .userInfoEndpoint()
                 .userService(userService)

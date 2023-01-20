@@ -30,6 +30,7 @@ public class OAuthDto {
     public static OAuthDto of(String registrationId,
                               String userNameAttributeName,
                               Map<String, Object> attributes) {
+        System.out.println(registrationId);
         return ofGoogle(userNameAttributeName, attributes);
     }
 
